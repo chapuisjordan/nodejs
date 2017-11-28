@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .navbar
+    a.onglets(href='home') home
+    a.onglets(href='presentation') presentation
+  h1.title Contact
+  form.contact(name="send-message", method="post", action="/contact/send")
+    span.label Title
+    input(type="text", name="title")
+    br
+    span.label Author
+    input(type="text", name="author")
+    br
+    span.label Price
+    input(type="text", name="price")
+    input(type="submit", value="send")

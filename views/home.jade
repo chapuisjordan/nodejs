@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .navbar
+    a.onglets(href='contact') contact
+    a.onglets(href='presentation') presentation
+  div.listing
+    each book in books
+
+      p.book(data-id="#{book.id}") Titre: #{book.title}
+      p.book Auteur: #{book.author}
+      hr.barre
+
+  div.listing
+    form(name="delete-book", method="post", action="/contact/delete")
+      select(name="book")
+        each book in books
+          option(value="#{book._id}") #{book.title}
+      input(type="submit", value="remove")
+
+    form(name="update-book", method="post", action="/contact/update")
+      select(name="book")
+        each book in books
+          option(value="#{book._id}") #{book.title}
+      input(type="submit", value="update")
